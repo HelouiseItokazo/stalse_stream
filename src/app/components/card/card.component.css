@@ -1,0 +1,21 @@
+.card {
+  background-color: #474747;
+  height: 630px;
+  width: 300px;
+}
+
+img{
+  height: 430px;
+  width: 300px;
+}
+
+.card-content{
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+.card-content h3{
+  font-size: 18px;
+}
+.card-content p{
+  font-size: 16px;
+}

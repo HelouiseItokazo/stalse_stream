@@ -1,0 +1,13 @@
+<header>
+  <div>
+    <input type="text" class="search-bar" [(ngModel)]="movieName" (keyup)="searchMovie()"
+      placeholder="Digite o nome do filme" />
+    <nav class="menu hamburger" id="menu" onclick="toggleMenu()">
+      <a href="http://localhost:4200">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+    </nav>
+  </div>
+</header>
+<div class= "msg" *ngIf="isLoading">Carregando...</div>
+<div class= "msg" *ngIf="errorMessage">{{ errorMessage }}</div>
