@@ -1,21 +1,26 @@
 .card {
-  background-color: #474747;
-  height: 630px;
-  width: 300px;
+  border-radius: 5px;
+  height: 450px;
+  width: 200px;
 }
 
 img{
-  height: 430px;
-  width: 300px;
+  border-radius: 5px;
+  height: 300px;
+  width: 200px;
 }
 
 .card-content{
-  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  line-height: 20px;
   padding: 10px;
 }
-.card-content h3{
-  font-size: 18px;
+
+.card-title{
+  font-size: 14px;
 }
-.card-content p{
-  font-size: 16px;
+
+.card-description{
+  font-size: 12px;
 }
+

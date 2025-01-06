@@ -5,11 +5,7 @@
     <ng-container *ngFor="let nestedList of cards">
       <!-- Iterar sobre cada sublista -->
       <ng-container *ngFor="let card of nestedList">
-        <app-card
-          [Poster]="card.Poster"
-          [Title]="card.Title"
-          [Year]="card.Year"
-          [Writer]="card.Writer"
+        <app-card [Poster]="card.Poster" [Title]="card.Title" [Year]="card.Year" [Writer]="card.Writer"
           [Language]="card.Language">
         </app-card>
       </ng-container>
