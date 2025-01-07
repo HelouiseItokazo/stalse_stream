@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
-import { CardsComponent } from '../components/card/card.component';
 import { map } from 'rxjs/operators';  // Importando o operador 'map'
 
 
@@ -47,7 +46,7 @@ interface MovieResponse {
   Production: string;
   Website: string;
   Response: string;
-  Error:string;
+  Error: string;
 }
 
 interface Rating {
@@ -65,21 +64,17 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
-
-
   getCards(): Observable<ApiResponse> {
-    const url = `${this.apiUrl}?apikey=${this.apiKey}&s=Movie`;
+    const url = `${this.apiUrl}?apikey=${this.apiKey}&s=Pokemon`;
     return this.http.get<ApiResponse>(url).pipe(
       map(response => response)
     );
   }
 
-
-
-   // Função para buscar múltiplos filmes filtrando por nome
-   getCardsByName(searchTerm:string): Observable<MovieResponse[]> {
+  // Função para buscar múltiplos filmes filtrando por nome
+  getCardsByName(searchTerm: string): Observable<MovieResponse[]> {
     const url = `${this.apiUrl}?apikey=${this.apiKey}&t=${searchTerm}`;
-    console.log(typeof(this.http.get<any>(url)))
+    console.log(typeof (this.http.get<any>(url)))
     return this.http.get<any>(url).pipe(
       map(response => {
         // Transformando o objeto em um array, caso a resposta seja um objeto
@@ -92,10 +87,10 @@ export class CardService {
     );
   }
 
-   // Função para buscar múltiplos filmes filtrando por id
-   getCardsById(ident:string): Observable<MovieResponse[]> {
+  // Função para buscar múltiplos filmes filtrando por id
+  getCardsById(ident: string): Observable<MovieResponse[]> {
     const url = `${this.apiUrl}?apikey=${this.apiKey}&i=${ident}`;
-    console.log(typeof(this.http.get<any>(url)))
+    console.log(typeof (this.http.get<any>(url)))
     return this.http.get<any>(url).pipe(
       map(response => {
         // Transformando o objeto em um array, caso a resposta seja um objeto

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardService } from './service/card.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      const response = await this.cardService.getCards().toPromise();
+      const response = await firstValueFrom(this.cardService.getCards());
+
       if (response && response.Search) {
         // Inicializar um array para armazenar os detalhes dos filmes
         const detailedCards: any[] = [];
@@ -22,9 +24,9 @@ export class AppComponent implements OnInit {
         // Usar um loop para buscar os detalhes de cada filme
         for (const movie of response.Search) {
           try {
-            const detailedMovie = await this.cardService
-              .getCardsById(movie.imdbID)
-              .toPromise();
+            const detailedMovie = await firstValueFrom(this.cardService
+              .getCardsById(movie.imdbID))
+
             detailedCards.push(detailedMovie); // Adicionar o filme detalhado ao array
 
           } catch (error) {
