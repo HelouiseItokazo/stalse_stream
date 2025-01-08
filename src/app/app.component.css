@@ -5,6 +5,14 @@ main {
 #hero_banner{
   background-color: #121212;
   padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.poster{
+  border-radius: 15px;
+  height: 600px;
+  width: 400px;
 }
 
 img {

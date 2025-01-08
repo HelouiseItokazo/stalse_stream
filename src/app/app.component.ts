@@ -10,8 +10,9 @@ import { firstValueFrom } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   cards: any[] = []; // Array para armazenar os dados completos
+  poster: string = '';
 
-  constructor(private cardService: CardService) {}
+  constructor(private cardService: CardService) { }
 
   async ngOnInit(): Promise<void> {
     try {
@@ -40,6 +41,22 @@ export class AppComponent implements OnInit {
         // Atualizar o array cards com os dados detalhados
         this.cards = detailedCards;
         console.log(this.cards);
+
+        try {
+          const response = await firstValueFrom(this.cardService.getPoster())
+          if (response && response.Poster) {
+            const detailedCards: any[] = [];
+            detailedCards.push(response.Poster);
+            this.poster = detailedCards[0];
+            console.log('Poster', this.poster)
+          }
+        } catch (err) {
+          console.error(
+            'A propriedade Search não foi encontrada no response:',
+            response
+          );
+        }
+
       } else {
         console.error(
           'A propriedade Search não foi encontrada no response:',
@@ -50,4 +67,6 @@ export class AppComponent implements OnInit {
       console.error('Erro ao carregar dados:', err);
     }
   }
+
+
 }

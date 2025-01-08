@@ -49,6 +49,10 @@ interface MovieResponse {
   Error: string;
 }
 
+interface PosterResponse {
+  Poster: string;
+}
+
 interface Rating {
   Source: string;
   Value: string;
@@ -71,6 +75,14 @@ export class CardService {
       map(response => response)
     );
   }
+
+    // Função para buscar um filme por id
+    getPoster(): Observable<PosterResponse > {
+      const url = `${this.apiUrl}?apikey=${this.apiKey}&i=tt2861424`;
+      return this.http.get<PosterResponse>(url).pipe(
+        map(response => response)
+      );
+    }
 
   // Função para buscar múltiplos filmes filtrando por nome
   getCardsByName(searchTerm: string): Observable<MovieResponse[]> {
