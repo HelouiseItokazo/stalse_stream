@@ -7,10 +7,21 @@ main {
   padding: 100px;
 }
 
+img {
+  height: 100px;
+  width: 100px;
+}
+
 #card{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   padding: 15px;
+  transition: transform 0.3s, z-index 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.1); /* Aumenta o tamanho */
+  z-index: 10; /* Traz para frente */
 }

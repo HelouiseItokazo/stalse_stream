@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
-import { map } from 'rxjs/operators';  // Importando o operador 'map'
+import { map } from 'rxjs/operators';
 
 
 interface Movie {
@@ -64,6 +64,7 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
+  // Função para buscar múltiplos filmes
   getCards(): Observable<ApiResponse> {
     const url = `${this.apiUrl}?apikey=${this.apiKey}&s=Pokemon`;
     return this.http.get<ApiResponse>(url).pipe(
